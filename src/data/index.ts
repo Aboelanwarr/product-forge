@@ -1,4 +1,4 @@
-import type { IProduct } from "../interfaces";
+import type { IProduct,IFormInput} from "../interfaces";
 
 
 export const productList: IProduct[] = [
@@ -146,32 +146,32 @@ export const productList: IProduct[] = [
   },
 ];
 
-// export const formInputsList: IFormInput[] = [
-//   {
-//     id: "title",
-//     name: "title",
-//     label: "Product Title",
-//     type: "text",
-//   },
-//   {
-//     id: "description",
-//     name: "description",
-//     label: "Product Description",
-//     type: "text",
-//   },
-//   {
-//     id: "image",
-//     name: "imageURL",
-//     label: "Product Image URL",
-//     type: "text",
-//   },
-//   {
-//     id: "price",
-//     name: "price",
-//     label: "Product Price",
-//     type: "text",
-//   },
-// ];
+export const formInputsList: IFormInput[] = [
+  {
+    id: "title",
+    name: "title",
+    label: "Product Title",
+    type: "text",
+  },
+  {
+    id: "description",
+    name: "description",
+    label: "Product Description",
+    type: "text",
+  },
+  {
+    id: "image",
+    name: "imageURL",
+    label: "Product Image URL",
+    type: "text",
+  },
+  {
+    id: "price",
+    name: "price",
+    label: "Product Price",
+    type: "text",
+  },
+];
 
 export const colors: string[] = [
   "#a855f7",
