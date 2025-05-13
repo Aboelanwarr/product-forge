@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@utility container{
+  margin-inline: auto;
+}
+
+@layer utilities {
+  .container-2xl{
+    padding: 7rem;
+  }
+}
