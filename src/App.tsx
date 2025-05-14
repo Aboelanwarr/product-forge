@@ -1,11 +1,38 @@
-import { useState } from "react";
+import { useState, type ChangeEvent } from "react";
 import ProductCard from "./components/ProductCard";
 import MyModal from "./components/ui/Modal";
 import { formInputsList, productList } from "./data";
 import Button from "./components/ui/Button";
 import Input from "./components/ui/input";
+import type { IProduct } from "./interfaces";
 
 function App() {
+  /* -------------- STATE -------------- */
+  const [product, setProduct] = useState<IProduct>({
+    title: "",
+    description: "",
+    imageURL: "",
+    price: "",
+    colors: [],
+    category: {
+      name: '',
+      imageURL:''
+    }
+  });
+  const [isOpen, setIsOpen] = useState(false);
+
+  /* -------------- HANDLER -------------- */
+  const closeModal = () => setIsOpen(false);
+  const openModal = () => setIsOpen(true);
+  const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value, name } = event.target;
+    setProduct({
+      ...product,
+      [name]: value,
+    });
+  };
+  console.log(product);
+  /* -------------- RENDER -------------- */
   const renderProductList = productList.map((product) => (
     <ProductCard key={product.id} product={product} />
   ));
@@ -17,15 +44,9 @@ function App() {
       >
         {input.label}
       </label>
-      <Input type="text" id={input.id} name={input.name} />
+      <Input type="text" id={input.id} name={input.name} value={product[input.name]} onChange={onChangeHandler} />
     </div>
   ));
-  /* -------------- STATE -------------- */
-  const [isOpen, setIsOpen] = useState(false);
-
-  /* -------------- HANDLER -------------- */
-  const closeModal = () => setIsOpen(false);
-  const openModal = () => setIsOpen(true);
 
   return (
     <main className="container-2xl mx-auto">
@@ -40,7 +61,7 @@ function App() {
         closeModal={closeModal}
         title="ADD A NEW PRODUCT"
       >
-        <div className="space-y-3">
+        <form className="space-y-3">
           {renderFormInputList}
           <div className="flex items-center space-x-3">
             <Button className="bg-indigo-700 hover:bg-indigo-800">
@@ -48,7 +69,7 @@ function App() {
             </Button>
             <Button className="bg-gray-500 hover:bg-gray-800">Cancel</Button>
           </div>
-        </div>
+        </form>
       </MyModal>
     </main>
   );

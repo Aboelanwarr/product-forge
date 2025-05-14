@@ -146,7 +146,7 @@ export const productList: IProduct[] = [
   },
 ];
 
-export const formInputsList: IFormInput[] = [
+export const  formInputsList: IFormInput[] = [
   {
     id: "title",
     name: "title",
