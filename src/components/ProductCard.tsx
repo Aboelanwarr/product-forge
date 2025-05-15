@@ -8,9 +8,11 @@ interface Iprops {
   product: IProduct;
   setProductToEdit: (prodcut: IProduct) => void;
   openEditModal: () => void;
+  idx: number;
+  setProductToEditIdx: (value: number) => void;
 }
 
-const ProductCard = ({ product,setProductToEdit,openEditModal }: Iprops) => {
+const ProductCard = ({ product,setProductToEdit,openEditModal,idx,setProductToEditIdx }: Iprops) => {
   const { title, description, imageURL, price, category, colors } = product;
 
   /* -------------- RENDER -------------- */
@@ -21,7 +23,8 @@ const ProductCard = ({ product,setProductToEdit,openEditModal }: Iprops) => {
   const onEdit = () => {
     setProductToEdit(product);
     openEditModal();
-  }
+    setProductToEditIdx(idx);
+  };
 
   return (
     <div className="max-w-sm mx-auto lg:max-w-lg md:mx-0 border border-gray-300 rounded-md p-2 flex flex-col">
