@@ -6,16 +6,23 @@ import CircleColor from "./ui/CircleColor";
 
 interface Iprops {
   product: IProduct;
+  setProductToEdit: (prodcut: IProduct) => void;
+  openEditModal: () => void;
 }
 
-const ProductCard = ({ product }: Iprops) => {
-  const { title, description, imageURL, price, category,colors } = product;
-    const renderProductColors = colors.map((color) => (
-    <CircleColor
-      key={color}
-      color={color}
-    />
-  ));
+const ProductCard = ({ product,setProductToEdit,openEditModal }: Iprops) => {
+  const { title, description, imageURL, price, category, colors } = product;
+
+  /* -------------- RENDER -------------- */
+  const renderProductColors = colors.map((color) => (<CircleColor key={color} color={color} />));
+
+
+  /* -------------- HANDLER -------------- */
+  const onEdit = () => {
+    setProductToEdit(product);
+    openEditModal();
+  }
+
   return (
     <div className="max-w-sm mx-auto lg:max-w-lg md:mx-0 border border-gray-300 rounded-md p-2 flex flex-col">
       <Image
@@ -41,8 +48,12 @@ const ProductCard = ({ product }: Iprops) => {
         />
       </div>
       <div className="flex items-center justify-between space-x-2">
-        <Button className="bg-indigo-700">EDIT</Button>
-        <Button className="bg-red-700">DELETE</Button>
+        <Button className="bg-indigo-700" onClick={onEdit}>
+          EDIT
+        </Button>
+        <Button className="bg-red-700">
+          DELETE
+        </Button>
       </div>
     </div>
   );
