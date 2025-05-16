@@ -5,7 +5,7 @@ import { categories, colors, formInputsList, productList } from "./data";
 import Button from "./components/ui/Button";
 import type { IProduct } from "./interfaces";
 import { productValidation } from "./validation";
-import Input from "./components/ui/input";
+import Input from "./components/ui/Input";
 import ErrorMessage from "./components/ui/ErrorMessage";
 import CircleColor from "./components/ui/CircleColor";
 import { Select } from "./components/ui/Select";
@@ -190,7 +190,7 @@ function App() {
     <div className="flex flex-col gap-2" key={input.id}>
       <label
         htmlFor={input.id}
-        className="mb-[2px] text-sm font-medium text-gray-700"
+        className="mb-[2px] text-sm font-medium text-accent-foreground"
       >
         {input.label}
       </label>
@@ -200,6 +200,7 @@ function App() {
         name={input.name}
         value={product[input.name]}
         onChange={onChangeHandler}
+        placeholder={input.label}
       />
       <ErrorMessage msg={errors[input.name]} />
     </div>
@@ -286,11 +287,11 @@ function App() {
             <ErrorMessage msg={errors["colors"]} />
           </div>
           <div className="flex items-center space-x-3">
-            <Button className="bg-indigo-700 hover:bg-indigo-800">
+            <Button className="bg-secondary hover:bg-secondary/70 text-secondary-foreground">
               Submit
             </Button>
             <Button
-              className="bg-destructive hover:bg-gray-800"
+              className="bg-destructive hover:bg-destructive/75"
               onClick={onCancel}
             >
               Cancel
@@ -339,7 +340,7 @@ function App() {
             {renderProductColors}
             <ErrorMessage msg={errors["colors"]} />
           </div>
-          <Button className="bg-indigo-700 hover:bg-indigo-800">Submit</Button>
+          <Button className="">Submit</Button>
         </form>
       </MyModal>
       {/* DELETE PRODUCT CONFIRM MODAL */}
@@ -351,14 +352,14 @@ function App() {
       >
         <div className="flex items-center space-x-3">
           <Button
-            className="bg-destructive hover:bg-red-800"
+            className="!bg-destructive hover:!bg-destructive/80"
             onClick={removeProductHandler}
           >
             Yes, remove
           </Button>
           <Button
             type="button"
-            className="bg-[#f5f5fa] hover:bg-gray-300 !text-black"
+            className="bg-secondary hover:bg-secondary/70 text-secondary-foreground"
             onClick={closeConfirmModal}
           >
             Cancel

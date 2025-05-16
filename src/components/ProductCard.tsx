@@ -40,21 +40,21 @@ const ProductCard = ({
   };
 
   return (
-    <div className="border border-[#e1e1e1] bg-[#f8f8f8] rounded-md p-2 flex flex-col space-y-3">
+    <div className="border border-border bg-card text-card-foreground rounded-md p-2 flex flex-col space-y-3">
       <Image
         imageUrl={imageURL}
         alt={"product name"}
         className="rounded-md h-52 w-full lg:object-cover"
       />
-      <h3 className="text-lg text-card-foreground font-semibold mt-2 flex-1">
+      <h3 className="text-lg font-semibold mt-2 flex-1">
         {txtSlicer(title, 25)}
       </h3>
-      <p className="text-sm text-card-foreground break-words">
+      <p className="text-sm break-words">
         {txtSlicer(description)}
       </p>
       <div className="flex flex-wrap items-center space-x-1">
         {!colors.length ? (
-          <p className="min-h-[20px] text-card-foreground font-semibold">
+          <p className="min-h-[20px] font-semibold">
             Not available
           </p>
         ) : (
@@ -62,11 +62,11 @@ const ProductCard = ({
         )}
       </div>
       <div className="flex items-center justify-between py-2">
-        <span className="text-lg text-[#611c69] font-semibold">{`$ ${numberWithCommas(
+        <span className="text-lg font-semibold">{`$ ${numberWithCommas(
           price
         )}`}</span>
         <div className="flex items-center space-x-2">
-          <span className="text-xs font-semibold text-card-foreground">
+          <span className="text-xs font-semibold">
             {category.name}
           </span>
           <Image
@@ -78,12 +78,12 @@ const ProductCard = ({
       </div>
       <div className="flex items-center justify-between space-x-2">
         <Button
-          className="bg-[#f4f0f7] hover:bg-indigo-800 text-[#4b154c]"
+          className="bg-secondary hover:bg-secondary/70 text-secondary-foreground"
           onClick={onEdit}
         >
           Edit
         </Button>
-        <Button className="bg-[#e0215b] hover:bg-red-800" onClick={onRemove}>
+        <Button className="!bg-destructive hover:bg-destructive/80" onClick={onRemove}>
           Remove
         </Button>
       </div>
