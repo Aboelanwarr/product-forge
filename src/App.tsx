@@ -5,7 +5,7 @@ import { categories, colors, formInputsList, productList } from "./data";
 import Button from "./components/ui/Button";
 import type { IProduct } from "./interfaces";
 import { productValidation } from "./validation";
-import Input from "./components/ui/Input";
+import Input from "./components/ui/temp";
 import ErrorMessage from "./components/ui/ErrorMessage";
 import CircleColor from "./components/ui/CircleColor";
 import { Select } from "./components/ui/Select";
