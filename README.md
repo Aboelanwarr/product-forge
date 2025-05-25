@@ -23,10 +23,10 @@ cd product-forge
 npm install
 npm run dev
 ```
-##🛠️ Main Functionalities
+## 🛠️ Main Functionalities
 - Create, read, update, delete tasks
 - Organize projects and ideas
 - Simple but effective design, focused on usability
 
-##🌟 About
+## 🌟 About
 This app was built as a personal project to explore fullstack patterns and practice building a real-world, end-to-end product.
